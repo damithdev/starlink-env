@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: starlink-cluster
-        image: gcr.io/microservices-300319/starlink-cluster:616ca50
+        image: gcr.io/microservices-300319/starlink-cloudbuild:26cbc9d
         ports:
         - containerPort: 8080
 ---
