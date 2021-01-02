@@ -12,35 +12,43 @@
 # See the License for the specific language governing permissions and
 # limitations under the License. 
 
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: prod
+  labels:
+    name: prod
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: starlink-cluster
+  name: starlink-app
+  namespace: prod
   labels:
-    app: starlink-cluster
+    app: starlink-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: starlink-cluster
+      app: starlink-app
   template:
     metadata:
       labels:
-        app: starlink-cluster
+        app: starlink-app
     spec:
       containers:
-      - name: starlink-cluster
-        image: gcr.io/project-starlink/starlink-cloudbuild:1ce71f0
+      - name: starlink-app
+        image: gcr.io/project-starlink/starlink-cloudbuild:1078000
         ports:
         - containerPort: 8080
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: starlink-cluster
+  name: starlink-service
 spec:
   selector:
-    app: starlink-cluster
+    app: starlink-app
   ports:
   - protocol: TCP
     port: 80
