@@ -15,15 +15,15 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: prod
+  name: dev
   labels:
-    name: prod
+    name: dev
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: starlink-app
-  namespace: prod
+  namespace: dev
   labels:
     app: starlink-app
 spec:
@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
       - name: starlink-app
-        image: gcr.io/project-starlink/starlink-cloudbuild:1078000
+        image: gcr.io/project-starlink/starlink-cloudbuild:5dbabe8
         ports:
         - containerPort: 8080
 ---
