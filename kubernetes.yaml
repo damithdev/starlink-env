@@ -10,7 +10,7 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
-# limitations under the License.   
+# limitations under the License.
 
 apiVersion: apps/v1
 kind: Deployment
@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: starlink-cluster
-        image: gcr.io/microservices-300319/starlink-cloudbuild:26cbc9d
+        image: gcr.io/project-starlink/starlink-cloudbuild:01bf11f
         ports:
         - containerPort: 8080
 ---
